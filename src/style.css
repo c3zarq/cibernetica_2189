@@ -1,0 +1,161 @@
+:root {
+  color-scheme: dark;
+  --cyan: #4ff6ff;
+  --magenta: #ff3d9a;
+  --ink: #05060a;
+  --panel: rgba(5, 8, 14, 0.86);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--ink);
+  color: #d7e7f2;
+  font-family: ui-monospace, SFMono-Regular, "Cascadia Mono", Menlo, Consolas,
+    monospace;
+}
+
+#game {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--ink);
+  outline: none;
+}
+
+.lock-hint {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  user-select: none;
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(4, 10, 16, 0.15),
+    rgba(3, 5, 9, 0.72) 70%
+  );
+  transition: opacity 180ms ease;
+}
+
+.lock-hint.is-hidden {
+  opacity: 0;
+}
+
+.panel {
+  padding: 2.25rem 3rem;
+  text-align: center;
+  border: 1px solid rgba(79, 246, 255, 0.35);
+  background: linear-gradient(180deg, var(--panel), rgba(4, 5, 9, 0.94));
+  box-shadow:
+    0 0 48px rgba(79, 246, 255, 0.12),
+    inset 0 0 32px rgba(79, 246, 255, 0.05);
+}
+
+.kicker {
+  margin: 0;
+  color: var(--magenta);
+  font-size: 0.72rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0.55rem 0 1.1rem;
+  color: var(--cyan);
+  font-size: clamp(1.9rem, 6vw, 4rem);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-shadow: 0 0 22px rgba(79, 246, 255, 0.45);
+}
+
+.prompt {
+  margin: 0 0 1.4rem;
+  color: #e8fbff;
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1.15rem;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: rgba(215, 231, 242, 0.68);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.controls b {
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.debug {
+  position: fixed;
+  top: 0.8rem;
+  left: 0.8rem;
+  z-index: 5;
+  padding: 0.35rem 0.6rem;
+  border-left: 2px solid var(--cyan);
+  background: rgba(3, 6, 10, 0.6);
+  color: rgba(79, 246, 255, 0.82);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  white-space: pre;
+}
+
+.fatal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: var(--ink);
+}
+
+.fatal .panel {
+  max-width: 34rem;
+  border-color: rgba(255, 61, 154, 0.5);
+}
+
+.fatal h1 {
+  color: var(--magenta);
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+}
+
+.fatal p {
+  color: rgba(215, 231, 242, 0.75);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}

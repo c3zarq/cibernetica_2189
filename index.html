@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cibernetica 2189</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2305060a'/%3E%3Cpath d='M6 22V10h6v12H6zm8 0V10h4l2 5 2-5h4v12h-4v-6l-2 5h-2l-2-5v6h-2z' fill='%234ff6ff'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <canvas id="game" aria-label="Cena 3D do jogo Cibernetica 2189"></canvas>
+
+    <div id="lock-hint" class="lock-hint">
+      <div class="panel">
+        <p class="kicker">2189 // SETOR 07</p>
+        <h1>CIBERNETICA</h1>
+        <p class="prompt">Clique para jogar</p>
+        <ul class="controls">
+          <li><b>WASD</b> mover</li>
+          <li><b>Mouse</b> olhar</li>
+          <li><b>Shift</b> correr</li>
+          <li><b>Espaço</b> pular</li>
+          <li><b>ESC</b> liberar mouse</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="debug" class="debug" hidden></div>
+
+    <div id="fatal" class="fatal" hidden>
+      <div class="panel">
+        <p class="kicker">ERRO FATAL</p>
+        <h1>SEM WEBGL2</h1>
+        <p id="fatal-message">
+          O navegador não conseguiu criar um contexto WebGL2 acelerado.
+        </p>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
